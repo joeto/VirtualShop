@@ -23,10 +23,6 @@ public class VirtualShop extends JavaPlugin {
     
     public static Economy econ = null;
     
-    public void onDisable() {
-        DatabaseManager.Close();
-    }
-
     public void onEnable() {
         if (this.setupEconomy()){
             

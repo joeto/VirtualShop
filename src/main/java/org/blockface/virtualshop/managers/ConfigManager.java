@@ -20,7 +20,6 @@ public class ConfigManager
         }
         plugin.reloadConfig();
         BroadcastOffers();
-        UsingMySQL();
         MySQLUserName();
         MySQLHost();
         MySQLdatabase();
@@ -38,11 +37,6 @@ public class ConfigManager
     public static Integer getPort() {
         return config.getInt("MySQL.port",3306);
     }
-
-	public static Boolean UsingMySQL()
-	{
-		return config.getBoolean("using-MySQL", false);
-	}
 
 	public static String MySQLUserName()
 	{

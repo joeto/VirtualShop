@@ -8,5 +8,4 @@ public interface Database
 
     public ResultSet Query(String query);
 
-    public void Unload();
 }

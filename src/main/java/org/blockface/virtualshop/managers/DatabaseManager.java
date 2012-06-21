@@ -1,11 +1,9 @@
 package org.blockface.virtualshop.managers;
 
-import org.blockface.virtualshop.Chatty;
 import org.blockface.virtualshop.objects.Offer;
 import org.blockface.virtualshop.objects.Transaction;
 import org.blockface.virtualshop.persistance.Database;
 import org.blockface.virtualshop.persistance.MySQLDB;
-import org.blockface.virtualshop.persistance.SQLiteDB;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -17,17 +15,7 @@ public class DatabaseManager
 
     public static void Initialize()
     {
-        if(ConfigManager.UsingMySQL()) LoadMySQL();
-        else LoadSQLite();
-    }
-
-    private static void LoadSQLite() {
-        database = new SQLiteDB();
-        try {
-            database.Load();
-        } catch (Exception e) {
-            Chatty.LogInfo("Fatal error.");
-        }
+        LoadMySQL();
     }
 
     private static void LoadMySQL() {
@@ -35,12 +23,8 @@ public class DatabaseManager
         try {
             database.Load();
         } catch (Exception e) {
-            LoadSQLite();
+            //boggle
         }
-    }
-
-    public static void Close() {
-        database.Unload();
     }
 
     public static void AddOffer(Offer offer)
